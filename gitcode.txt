@@ -1,0 +1,60 @@
+PImage kingdom;
+float zx1, zx2, zy1, zy2, px1, px2, py1, py2, cc, bX, bY, bW, bH;
+
+void setup(){
+  kingdom = loadImage("background2.jpeg");
+  noStroke();
+size(1920, 1015);
+zx1 = 1920;
+zx2 = 150;
+zy1 = 150;
+zy2 = 150;
+px1 = 250;
+px2 = 150;
+py1 = 220;
+py2 = 150;
+cc= 0;
+bX = px1;
+bY = py1;
+bW = 50;
+bH = 50;
+rectMode(CENTER);
+}
+
+void draw(){
+     bX = bX + 10;
+  fill(0, 250, 0);
+  image(kingdom, 0, 0);
+  zx1 = zx1 - 15;
+  rect(zx1, zy1, zx2, zy2);
+  fill(#DFE37C);
+  rect(px1, py1, px2, py2);
+     fill(#9D9595);
+   ellipse(bX, bY, bW, bH);
+   
+  if(keyPressed){
+ if(keyCode == UP){ 
+   py1 = py1 - 12;
+  }
+ if(keyCode == DOWN){
+  py1 = py1 + 12;  
+ }
+  if(key == 'w'){ 
+   py1 = py1 - 12;
+  }
+  if(key == 's'){
+   py1 = py1 + 12; 
+  }
+}
+ if(zx1 <= 0){
+   zx1 = random(1919, 1920);
+   zy1 = random(0, 1015);
+ }
+}
+
+void keyPressed(){
+ if(key == ' '){
+   bX = px1;
+   bY = py1;
+ }
+}
